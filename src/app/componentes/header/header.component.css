@@ -1,0 +1,89 @@
+/*------ Header---------*/
+
+#header {
+  transition: all 0.5s;
+  z-index: 997;
+  padding: 20px 0;
+  display: flex;
+}
+#cont-img {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.logoap {
+  width: flex;
+  height: 100%;
+  width: 7rem;
+  align-items: center;
+  margin-right: 7px;
+}
+#yo-prog {
+  align-items: center;
+  color: #c0c0c0;
+  font-size: 16px;
+  font-weight: bold;
+}
+#header.header-scrolled {
+  background: #131313;
+  padding: 5px 0;
+}
+#social1 {
+  margin-right: 20px;
+  margin-left: 10px;
+  color: #808080;
+  font-size: 20px;
+}
+#social2 {
+  margin-right: 20px;
+  margin-left: 10px;
+  color: #808080;
+  font-size: 20px;
+}
+#email {
+  margin-right: 20px;
+  margin-left: 10px;
+  color: #808080;
+  font-size: 20px;
+}
+#sign-out {
+  margin-bottom: 6px;
+  margin-right: 20px;
+  margin-left: 10px;
+  border: 1px solid #ff6d09;
+  border-radius: 15px;
+  transition: 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+#sign-out:hover {
+  color: #fff;
+  background-color: #ff6d09;
+}
+/*----Banner------*/
+
+.jumbotron-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 8rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/*----Profile------*/
+#nombre {
+  color: antiquewhite;
+}
+
+.container {
+  position: relative;
+}
+
+.fotodeperfil {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin-top: -60px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}

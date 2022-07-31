@@ -1,0 +1,334 @@
+<div class="container-fluid">
+  <div class="card-group">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">
+          Acerca de mi
+          <a href="#" class="icon3" *ngIf="isLogged"
+            ><i class="fa fa-pencil" (click)="openModal(template)"></i
+          ></a>
+
+          <p class="text-muted">
+            <small
+              id="acerca"
+              class="text-muted center"
+              *ngFor="let about of about"
+              >{{ about.text }}</small
+            >
+          </p>
+          <p class="card-text"></p>
+        </h3>
+
+        <!-- Modal -->
+        <ng-template #template>
+          <form *ngFor="let about of about">
+            <div class="modal-header">
+              <h4 class="modal-title pull-left">Editar acerca de mi</h4>
+              <i
+                class="fa fa-times close pull-right"
+                aria-label="Close"
+                (click)="modalRef?.hide()"
+              >
+                <span aria-hidden="true"></span>
+              </i>
+            </div>
+            <div class="modal-body">
+              <input
+                type="hidden"
+                class="form-control"
+                name="id"
+                [(ngModel)]="about.id"
+              />
+              <textarea
+                rows="5"
+                id="sobremitexto"
+                class="form-control"
+                placeholder="About {{ about.text }}"
+                name="about"
+                [(ngModel)]="about.text"
+              ></textarea>
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-default"
+                (click)="modalRef?.hide()"
+              >
+                Cerrrar
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="editAbt(about)"
+              >
+                Guardar
+              </button>
+            </div>
+          </form>
+        </ng-template>
+
+        <!-- Modal -->
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">
+            Idiomas
+            <a href="#" class="icon3" *ngIf="isLogged"
+              ><i class="fa fa-plus" (click)="openModalid(templateid)"></i
+            ></a>
+          </h3>
+          <!-- Modal -->
+          <ng-template #templateid>
+            <form>
+              <div class="modal-header">
+                <h4 class="modal-title pull-left">Agregar idioma</h4>
+                <i
+                  class="fa fa-times close pull-right"
+                  aria-label="Close"
+                  (click)="modalRef?.hide()"
+                >
+                  <span aria-hidden="true"></span>
+                </i>
+              </div>
+              <div class="modal-body">
+                <input
+                  type="hidden"
+                  class="form-control"
+                  name="id"
+                  [(ngModel)]="id"
+                />
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Language"
+                  name="languages"
+                  [(ngModel)]="languages"
+                />
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Level"
+                  name="level"
+                  [(ngModel)]="level"
+                />
+              </div>
+
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-default"
+                  (click)="modalRef?.hide()"
+                >
+                  Cerrar
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  (click)="addLang()"
+                >
+                  Guardar
+                </button>
+              </div>
+            </form>
+          </ng-template>
+
+          <!-- Modal -->
+        </div>
+        <h4 class="example-h2"></h4>
+
+        <ul class="idiomas">
+          <li *ngFor="let language of language">
+            {{ language.languages }}
+            {{ language.level }}
+
+            <a href="#" class="icon3"
+              ><i
+                class="fa fa-pencil"
+                *ngIf="isLogged"
+                (click)="openModaledid(templateedid)"
+              ></i
+            ></a>
+            <a href="#" class="icon4"
+              ><i
+                class="fa fa-trash"
+                *ngIf="isLogged"
+                (click)="openModaldelid(templatedelete)"
+              ></i
+            ></a>
+            <ng-template #templateid>
+              <form>
+                <div class="modal-header">
+                  <h4 class="modal-title pull-left">Agregar idioma</h4>
+                  <i
+                    class="fa fa-times close pull-right"
+                    aria-label="Close"
+                    (click)="modalRef?.hide()"
+                  >
+                    <span aria-hidden="true"></span>
+                  </i>
+                </div>
+                <div class="modal-body">
+                  <input
+                    type="hidden"
+                    class="form-control"
+                    name="id"
+                    [(ngModel)]="id"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Language"
+                    name="languages"
+                    [(ngModel)]="languages"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Level"
+                    name="nivel"
+                    [(ngModel)]="level"
+                  />
+                </div>
+
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-default"
+                    (click)="modalRef?.hide()"
+                  >
+                    Cerrar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    (click)="addLang()"
+                  >
+                    Guardar
+                  </button>
+                </div>
+              </form>
+            </ng-template>
+
+            <!-- Modal -->
+            <ng-template #templateedid>
+              <form>
+                <div class="modal-header">
+                  <h4 class="modal-title pull-left">Editar idiomas</h4>
+                  <i
+                    class="fa fa-times close pull-right"
+                    aria-label="Close"
+                    (click)="modalRef?.hide()"
+                  >
+                    <span aria-hidden="true"></span>
+                  </i>
+                </div>
+                <div class="modal-body">
+                  <input
+                    type="hidden"
+                    class="form-control"
+                    name="id"
+                    [(ngModel)]="language.id"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Language{{ language.languages }}"
+                    name="languages"
+                    [(ngModel)]="language.languages"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Level {{language.level}"
+                    name="level"
+                    [(ngModel)]="language.level"
+                  />
+                </div>
+
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-default"
+                    (click)="modalRef?.hide()"
+                  >
+                    Cerrar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    (click)="editLang(language)"
+                  >
+                    Guardar
+                  </button>
+                </div>
+              </form>
+            </ng-template>
+
+            <!-- Modal -->
+
+            <!-- Modal -->
+            <ng-template #templatedelete>
+              <form>
+                <div class="modal-header">
+                  <h4 class="modal-title pull-left">Borrar idioma</h4>
+                  <i
+                    class="fa fa-times close pull-right"
+                    aria-label="Close"
+                    (click)="modalRef?.hide()"
+                  >
+                    <span aria-hidden="true"></span>
+                  </i>
+                </div>
+                <div class="modal-body">
+                  Estas a punto de borrar, ¿Estas seguro?
+
+                  <input
+                    type="hidden"
+                    class="form-control"
+                    name="id"
+                    [(ngModel)]="language.id"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Language{{ language.languages }}"
+                    name="language"
+                    [(ngModel)]="language.languages"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Level{{ language.level }}"
+                    name="level"
+                    [(ngModel)]="language.level"
+                  />
+                </div>
+
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-default"
+                    (click)="modalRef?.hide()"
+                  >
+                    Cerrar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    (click)="deleteLang(language)"
+                  >
+                    Borrar
+                  </button>
+                </div>
+              </form>
+            </ng-template>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

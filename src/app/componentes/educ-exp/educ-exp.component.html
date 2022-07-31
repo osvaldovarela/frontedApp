@@ -1,0 +1,523 @@
+<div class="container-fluid">
+  <div class="card-group">
+    <div class="card">
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">
+            Educación
+            <a href="#" class="icon3" *ngIf="isLogged"
+              ><i class="fa fa-plus" (click)="openModal2(templateed)"></i
+            ></a>
+          </h3>
+        </div>
+
+        <h4 class="example-h2"></h4>
+
+        <ul class="items-list educacion" class="row">
+          <li *ngFor="let education of education">
+            <div class="col-2 m-4">
+              <img class="img-fluid" [src]="education.link" />
+            </div>
+            <div class="col-10">
+              <p>{{ education.institution }}</p>
+              <p>{{ education.title }}</p>
+              {{ education.date }}
+            </div>
+
+            <a href="#" class="icon3"
+              ><i
+                class="fa fa-pencil"
+                *ngIf="isLogged"
+                (click)="openModal(template)"
+              ></i
+            ></a>
+            <a href="#" class="icon4"
+              ><i
+                class="fa fa-trash"
+                *ngIf="isLogged"
+                (click)="openModal1(template1)"
+              ></i
+            ></a>
+
+            <ng-template #template>
+              <form>
+                <div class="modal-header">
+                  <h4 class="modal-title pull-left">Editar educación</h4>
+                  <i
+                    class="fa fa-times close pull-right"
+                    aria-label="Close"
+                    (click)="modalRef?.hide()"
+                  >
+                    <span aria-hidden="true"></span>
+                  </i>
+                </div>
+                <div class="modal-body">
+                  <input
+                    type="hidden"
+                    class="form-control"
+                    name="id"
+                    [(ngModel)]="education.id"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Institution{{ education.institution }}"
+                    name="institution"
+                    [(ngModel)]="education.institution"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Logo{{ education.link }}"
+                    name="link"
+                    [(ngModel)]="education.link"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Date{{ education.date }}"
+                    name="date"
+                    [(ngModel)]="education.date"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Titulo{{ education.title }}"
+                    name="title"
+                    [(ngModel)]="education.title"
+                  />
+                </div>
+
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-default"
+                    (click)="modalRef?.hide()"
+                  >
+                    Cerrar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    (click)="editEdu(education)"
+                  >
+                    Guardar
+                  </button>
+                </div>
+              </form>
+            </ng-template>
+
+            <ng-template #template1>
+              <form>
+                <div class="modal-header">
+                  <h4 class="modal-title pull-left">Borrar educación</h4>
+                  <i
+                    class="fa fa-times close pull-right"
+                    aria-label="Close"
+                    (click)="modalRef?.hide()"
+                  >
+                    <span aria-hidden="true"></span>
+                  </i>
+                </div>
+                <div class="modal-body">
+                  Estas a punto de borrar, ¿Estas seguro?
+                  <input
+                    type="hidden"
+                    class="form-control"
+                    name="id"
+                    [(ngModel)]="education.id"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="instituion"
+                    [(ngModel)]="education.institution"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="link"
+                    [(ngModel)]="education.link"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="date"
+                    [(ngModel)]="education.date"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="title"
+                    [(ngModel)]="education.title"
+                  />
+                </div>
+
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-default"
+                    (click)="modalRef?.hide()"
+                  >
+                    Cerrar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    (click)="deleteEdu(education)"
+                  >
+                    Borrar
+                  </button>
+                </div>
+              </form>
+            </ng-template>
+          </li>
+        </ul>
+
+        <p class="card-text"><small class="text-muted"></small></p>
+        <ng-template #templateed>
+          <form>
+            <div class="modal-header">
+              <h4 class="modal-title pull-left">Agregar Educación</h4>
+              <i
+                class="fa fa-times close pull-right"
+                aria-label="Close"
+                (click)="modalRef?.hide()"
+              >
+                <span aria-hidden="true"></span>
+              </i>
+            </div>
+            <div class="modal-body">
+              <input
+                type="hidden"
+                class="form-control"
+                name="id"
+                [(ngModel)]="id"
+              />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Institution"
+                name="institution"
+                [(ngModel)]="institution"
+              />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Link"
+                name="link"
+                [(ngModel)]="link"
+              />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Date"
+                name="date"
+                [(ngModel)]="date"
+              />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Title"
+                name="title"
+                [(ngModel)]="title"
+              />
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-default"
+                (click)="modalRef?.hide()"
+              >
+                Cerrar
+              </button>
+              <button type="button" class="btn btn-primary" (click)="addEdu()">
+                Guardar
+              </button>
+            </div>
+          </form>
+        </ng-template>
+      </div>
+    </div>
+    <!-------Experiencia-------->
+    <div class="card">
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">
+            Experiencia
+            <a href="#" class="icon3" *ngIf="isLogged"
+              ><i class="fa fa-plus" (click)="penModaexp(templateexp)"></i
+            ></a>
+          </h3>
+        </div>
+
+        <h4 class="example-h2"></h4>
+        <ul class="experiencia" class="row">
+          <li *ngFor="let experience of experience">
+            <div class="col-2 m-4">
+              <img class="img-fluid" [src]="experience.link" />
+            </div>
+            <div class="col-10">
+              <p>{{ experience.position }}</p>
+              <p>{{ experience.company }}</p>
+              {{ experience.startTime }}-{{ experience.endTime }}
+            </div>
+
+            <a href="#" class="icon3"
+              ><i
+                class="fa fa-pencil"
+                *ngIf="isLogged"
+                (click)="openModal(template)"
+              ></i
+            ></a>
+            <a href="#" class="icon4"
+              ><i
+                class="fa fa-trash"
+                *ngIf="isLogged"
+                (click)="openModal1(template1)"
+              ></i
+            ></a>
+            <ng-template #template>
+              <form>
+                <div class="modal-header">
+                  <h4 class="modal-title pull-left">Editar experiencia</h4>
+                  <i
+                    class="fa fa-times close pull-right"
+                    aria-label="Close"
+                    (click)="modalRef?.hide()"
+                  >
+                    <span aria-hidden="true"></span>
+                  </i>
+                </div>
+                <div class="modal-body">
+                  <input
+                    type="hidden"
+                    class="form-control"
+                    name="id"
+                    [(ngModel)]="experience.id"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Company{{ experience.company }}"
+                    name="empresa"
+                    [(ngModel)]="experience.company"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="link"
+                    placeholder="Logo{{ experience.link }}"
+                    [(ngModel)]="experience.link"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="fecha"
+                    placeholder="Fecha{{ experience.startTime }}"
+                    [(ngModel)]="experience.startTime"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="endTime"
+                    placeholder="Fecha Hasta{{ experience.endTime }}"
+                    [(ngModel)]="experience.endTime"
+                  />
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="position"
+                    [(ngModel)]="experience.position"
+                  />
+                </div>
+
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-default"
+                    (click)="modalRef?.hide()"
+                  >
+                    Cerrar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    (click)="editarExp(experience)"
+                  >
+                    Guardar
+                  </button>
+                </div>
+              </form>
+            </ng-template>
+
+            <ng-template #template1>
+              <form>
+                <div class="modal-header">
+                  <h4 class="modal-title pull-left">Borrar experiencia</h4>
+                  <i
+                    class="fa fa-times close pull-right"
+                    aria-label="Close"
+                    (click)="modalRef?.hide()"
+                  >
+                    <span aria-hidden="true"></span>
+                  </i>
+                </div>
+                <div class="modal-body">
+                  Estas a punto de borrar, ¿Estas seguro?
+                  <input
+                    type="hidden"
+                    class="form-control"
+                    name="id"
+                    [(ngModel)]="experience.id"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Company{{ experience.company }}"
+                    name="company"
+                    [(ngModel)]="experience.company"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Link{{ experience.link }}"
+                    name="link"
+                    [(ngModel)]="experience.link"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Date{{ experience.startTime }}"
+                    name="startTime"
+                    [(ngModel)]="experience.startTime"
+                  />
+                  <input
+                    type="tet"
+                    class="form-control"
+                    name="endTime"
+                    placeholder="Date End"
+                    [(ngModel)]="experience.endTime"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="position"
+                    placeholder="Position{{ experience.position }}"
+                    [(ngModel)]="experience.position"
+                  />
+                </div>
+
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-default"
+                    (click)="modalRef?.hide()"
+                  >
+                    Cerrar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    (click)="deleteExp(experience)"
+                  >
+                    Borrar
+                  </button>
+                </div>
+              </form>
+            </ng-template>
+          </li>
+        </ul>
+
+        <ng-template #templateexp>
+          <form>
+            <div class="modal-header">
+              <h4 class="modal-title pull-left">Agregar experiencia</h4>
+              <i
+                class="fa fa-times close pull-right"
+                aria-label="Close"
+                (click)="modalRef?.hide()"
+              >
+                <span aria-hidden="true"></span>
+              </i>
+            </div>
+            <div class="modal-body">
+              <input
+                type="hidden"
+                class="form-control"
+                name="id"
+                [(ngModel)]="id"
+              />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Company"
+                name="company"
+                [(ngModel)]="company"
+              />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Link"
+                name="link"
+                [(ngModel)]="link"
+              />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Date"
+                name="date"
+                [(ngModel)]="startTime"
+              />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Date End"
+                name="fechaHasta"
+                [(ngModel)]="endTime"
+              />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Position"
+                name="position"
+                [(ngModel)]="position"
+              />
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-default"
+                (click)="modalRef?.hide()"
+              >
+                Cerrar
+              </button>
+              <button type="button" class="btn btn-primary" (click)="addExp()">
+                Guardar
+              </button>
+            </div>
+          </form>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <!--Footer -->
+  <div class="">
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="copyright-box">
+              <p class="copyright">Jorge Varela | © Argentina Programa 2022</p>
+              <p>Buenos Aires, Argentina</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Fin  Footer -->
+  </div>
+</div>

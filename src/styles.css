@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap");
+
+/*---- General--- */
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #131313;
+  background-size: cover;
+  color: #4e4e4e;
+}
+h1,
+h2,
+h3,
+h4 {
+  color: #1e1e1e;
+}
+a {
+  color: #1e1e1e;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+a:hover {
+  color: #0078ff;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+@media (max-width: 1024px) {
+  .bg-image {
+    background-attachment: scroll;
+  }
+}
+#nombre {
+  position: absolute;
+  left: 17rem;
+  top: 10rem;
+}
+.mb-4 {
+  color: #383838;
+}
+.info {
+  margin-left: 8rem !important;
+  margin-bottom: 2px;
+  font-size: medium;
+  color: #1561f0;
+}
+#info1 {
+  color: #86868b;
+  font-size: medium;
+  margin-bottom: 2px;
+  margin-left: 3rem;
+  margin-top: -1.5rem;
+}
+.card-title {
+  color: #2f535e;
+}
+.card-text {
+  color: #383838;
+}
+#mail {
+  color: #86868b;
+}
+.fa fa-trash,
+.fa fa-edit,
+.fa fa-plus,
+.fa fa-pencil,
+fa fa-globe {
+  color: #2f535e;
+}
+.agregar {
+  color: #2f535e;
+  font-size: medium;
+  margin-left: 1rem;
+}
+#icon1 {
+  margin-left: 9rem;
+  color: #2f535e;
+  font-size: medium;
+}
+.icon3 {
+  float: right;
+  margin-left: 20px;
+  color: #2f535e;
+  font-size: medium;
+}
+.icon4 {
+  float: right;
+  color: #2f535e;
+  font-size: medium;
+}
+#imgstec {
+  text-align: center;
+}
+#imgstec2 {
+  text-align: center;
+}
+.tecno {
+  height: 3.5rem;
+  width: auto;
+  display: inline-block;
+}
+#sp {
+  margin-left: -10px;
+}
+#logouni {
+  height: 3rem;
+  width: auto;
+}
+@media screen and (min-width: 768px) {
+  .idiomas {
+    margin-top: 3rem;
+  }
+}
+@media screen and (min-width: 520px) and (max-width: 768px) {
+  .card {
+    min-width: 450px !important;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+  }
+  .card-body {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+  }
+  .modal {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 490px) {
+  html {
+    font-size: smaller;
+  }
+  .icon4 {
+    font-size: 13px !important;
+  }
+  #icon1 {
+    margin-left: 7rem;
+    font-size: 13px !important;
+  }
+  .icon3 {
+    font-size: 13px !important;
+  }
+  #acerca {
+    font-size: small !important;
+  }
+  #sign-out {
+    margin-right: 0.4rem !important;
+    margin-left: 0.2rem;
+    font-size: smaller;
+  }
+  #nombre {
+    left: 6rem;
+  }
+  .fotodeperfil {
+    height: 5rem;
+    width: 5rem;
+    margin-left: 5px;
+  }
+  .info {
+    font-size: small;
+    margin-left: 6rem !important;
+  }
+  #info1 {
+    font-size: small;
+    margin-left: 6rem !important;
+  }
+  .proyectos {
+    margin-left: -1.2rem;
+  }
+  .skills {
+    margin-left: -1.4rem !important;
+  }
+  .idiomas {
+    margin-left: -1.2rem !important;
+  }
+  .modal {
+    width: 80%;
+  }
+}
+#edu1 {
+  float: left;
+  margin-left: 1rem;
+}
+#edu2 {
+  float: right;
+  margin-right: 2rem;
+}
+ul {
+  list-style: none;
+}
+#acerca {
+  color: #383838 !important;
+  font-size: medium;
+}
+.form-control {
+  border: none;
+}
+footer {
+  text-align: center;
+  color: #fff;
+  padding: 25px 0;
+  background: #0062d3;
+}
+footer .copyright {
+  margin-bottom: 0.3rem;
+}

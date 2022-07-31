@@ -1,0 +1,152 @@
+<!-- Header -->
+<div class="container-fluid">
+  <div id="header" class="header-scrolled">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div id="cont-img">
+        <img class="logoap img-fluid" src="../assets/imgs/APLogo-20-20.png" />
+        <div id="yo-prog">#YoProgramo</div>
+      </div>
+      <div>
+        <a href="https://github.com/osvaldovarela/" target="_blank" id="social1"
+          ><i class="fa fa-github-square"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/varelajorge/"
+          target="_blank"
+          id="social2"
+          ><i class="fa fa-linkedin"></i
+        ></a>
+        <button
+          type="button"
+          class="btn btn-outline-secondary btn-sm"
+          id="sign-out"
+          *ngIf="logged"
+          (click)="signout()"
+        >
+          Cerrar sesion
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-light btn-sm"
+          id="sign-out"
+          *ngIf="!logged"
+          routerLink="/login"
+        >
+          Ingresar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!--Fin Header -->
+  <!-- Banner -->
+  <div
+    class="container-fluid jumbotron text-white jumbotron-image shadow img-fluid"
+    style="background-image: url(../assets/imgs/software-3682509_1920.jpg)"
+  >
+    <h2 *ngFor="let person of person" id="nombre">
+      {{ person.name }} <br /><br />
+    </h2>
+  </div>
+  <!-- Fin Banner -->
+  <!-- About -->
+  <div class="container">
+    <div>
+      <img
+        class="fotodeperfil"
+        *ngFor="let person of person"
+        [src]="person.profileImg"
+        alt="fotoperfil"
+      />
+    </div>
+    <p class="info" id="info1" *ngFor="let person of person">
+      {{ person.description }}
+    </p>
+    <p class="info" *ngFor="let person of person">
+      {{ person.city }}
+    </p>
+    <p class="info" *ngFor="let person of person">
+      {{ person.country }}
+      <a href="#" id="icon1"
+        ><i
+          class="fa fa-pencil"
+          *ngIf="logged"
+          (click)="openModal1(template1)"
+        ></i
+      ></a>
+      <br />
+      <a id="mail" href="mailto:{{ person.mail }}"
+        ><i class="fa fa-envelope"></i>
+      </a>
+      <!--Fin About -->
+      <!-- Modal -->
+      <ng-template #template1>
+        <form>
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">Editar acerca de mi</h4>
+            <i
+              class="fa fa-times close pull-right"
+              aria-label="Close"
+              (click)="modalRef?.hide()"
+            >
+              <span aria-hidden="true"></span>
+            </i>
+          </div>
+          <div class="modal-body">
+            <input
+              type="hidden"
+              class="form-control"
+              name="id"
+              [(ngModel)]="person.id"
+            />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Name{{ person.name }}"
+              name="name"
+              [(ngModel)]="person.name"
+            />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Description{{ person.description }}"
+              name="descripcion"
+              [(ngModel)]="person.description"
+            />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="City{{ person.city }}"
+              name="city"
+              [(ngModel)]="person.city"
+            />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Country{{ person.country }}"
+              name="country"
+              [(ngModel)]="person.country"
+            />
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-default"
+              (click)="modalRef?.hide()"
+            >
+              Cerrar
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="editarPersona(person)"
+            >
+              Guardar
+            </button>
+          </div>
+        </form>
+      </ng-template>
+    </p>
+  </div>
+</div>
